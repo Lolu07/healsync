@@ -1,9 +1,18 @@
 import streamlit as st
 import numpy as np
 import pickle
+import os
 
-# load model
-model, scaler = pickle.load(open("model.pkl", "rb"))
+from model import train_model  
+
+
+if not os.path.exists("model.pkl"):
+    train_model()   
+
+
+with open("model.pkl", "rb") as f:
+    model, scaler = pickle.load(f)
+
 
 st.set_page_config(page_title="HealSync Lite", page_icon="💙")
 
