@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 import pickle
 import os
+import sklearn
+
 
 from model import train_model  
 
